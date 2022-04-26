@@ -10,12 +10,12 @@ import BH5 from "../../assets/BH5.jpg";
 import BH6 from "../../assets/BH6.jpg";
 
 const objProducts = [
-    {id:1,title:"BH1",description:"Polyamide thread spool",category:"Polyamide",price:100,stock:10,pictureUrl:BH1},
-    {id:2,title:"BH2",description:"Polyester thread spool",category:"Polyester",price:200,stock:10,pictureUrl:BH2},
-    {id:3,title:"BH3",description:"Acrylic thread spool",category:"Acrylic",price:300,stock:10,pictureUrl:BH3},
-    {id:4,title:"BH4",description:"Plasma polymerization polyamide thread spool",category:"Polyamide",price:200,stock:10,pictureUrl:BH4},
-    {id:5,title:"BH5",description:"Plasma polimerization polyester thread spool",category:"Polyester",price:400,stock:10,pictureUrl:BH5},
-    {id:6,title:"BH6",description:"Plasma polimerization acrylic thread spool",category:"Acrylic",price:600,stock:10,pictureUrl:BH6},
+    {id:1,title:"BH1",description:"Polyamide thread spool",category:"Polyamide",price:100,colors:["red","black","crimson","teal"],sizes:["1d","2d","3d","4d"],stock:10,pictureUrl:BH1},
+    {id:2,title:"BH2",description:"Polyester thread spool",category:"Polyester",price:200,color:["red","black","crimson","teal"],sizes:["1d","2d","3d","4d"],stock:10,pictureUrl:BH2},
+    {id:3,title:"BH3",description:"Acrylic thread spool",category:"Acrylic",price:300,color:["red","black","crimson","teal"],sizes:["1d","2d","3d","4d"],stock:10,pictureUrl:BH3},
+    {id:4,title:"BH4",description:"Plasma polymerization polyamide thread spool",category:"Polyamide",price:200,color:["red","black","crimson","teal"],sizes:["1d","2d","3d","4d"],stock:10,pictureUrl:BH4},
+    {id:5,title:"BH5",description:"Plasma polimerization polyester thread spool",category:"Polyester",price:400,color:["red","black","crimson","teal"],sizes:["1d","2d","3d","4d"],stock:10,pictureUrl:BH5},
+    {id:6,title:"BH6",description:"Plasma polimerization acrylic thread spool",category:"Acrylic",price:600,color:["red","black","crimson","teal"],sizes:["1d","2d","3d","4d"],stock:10,pictureUrl:BH6},
 
 ];
 
