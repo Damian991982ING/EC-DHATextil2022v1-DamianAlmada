@@ -2,7 +2,7 @@
 
 E-commerce desarrollado en React, este proyecto esta basado en mi tesis de trabajo final de ingenieria que consiste en una empresa dedicada a la fabricacion
 de bobinas de hilado textil industrial de Poliamida,Poliester y Acrilico.
-La fabricacion se lleva a cabo 
+La fabricacion se lleva a cabo a traves de 2 metodologias, la polimerizacion convencional y la polimerizacion por plasma. 
 
 ## Demo
 
@@ -18,11 +18,11 @@ Esta web muestra los productos a la venta. Los usuarios pueden agregar o remover
 ----------
 
 *Index*
->![picture alt](public/inicio.JPG "Inicio")
+>![picture alt](public/Inicio.jpg "Inicio")
 ----------
 
 *Detalle de Producto*
->![picture alt](public/DetalleProducto.JPG "Detalle de Producto")
+>![picture alt](public/DetalleProducto.jpg "Detalle de Producto")
 ----------
 ---
 
