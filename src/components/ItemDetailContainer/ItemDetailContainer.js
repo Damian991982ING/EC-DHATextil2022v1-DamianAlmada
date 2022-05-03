@@ -1,51 +1,49 @@
 import React,{useState,useEffect} from "react";
 import Loading from "../Loading/Loading";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import BH1 from "../../assets/BH1.jpg";
+import Products from "../../db/products";
+import { useParams } from "react-router-dom";
 
 
-const objProducts = [
-    {id:1,title:"BH1",description:"Polyamide thread spool",category:"Polyamide",price:100,colors:["red","black","crimson","teal"],sizes:["1d","2d","3d","4d"],stock:10,pictureUrl:BH1}
+const getProduct=(productId)=> {
+    const myPromise = new Promise((resolve,reject)=>{
+        const item = Products.filter(item=>item.id === parseInt(productId));
+        setTimeout(() => {
+            resolve(item[0])
+            
+        }, 2000);
+
+    });
+    return myPromise
     
-];
+}
+  
+
 
 const ItemDetailContainer=()=>{
-    const [products,setProducts] = useState([]);
+    const [product,setProduct] = useState([]);
     const [loading, setLoading]= useState(true);
 
+    const { productId } = useParams();
+
+
+
     useEffect(()=>{
+        console.log(productId);
+        getProduct(productId).then(res=>{
+            setProduct(res);
+            setLoading(false);
+            console.log("el id es" + res);
+        });
+    },[productId])
 
-        const getProducts = new Promise((resolve,reject)=>{
-            setTimeout(() => {
-                resolve(objProducts);
-                
-            },3000)});
-
-            getProducts.then(
-                res=>{
-                    setProducts(res)
-                    setLoading(false)
-        
-                },
-                err=>{console.log(err)}
-            );
-            getProducts.catch(err=>{
-                console.log(err);
-        
-            });
-            getProducts.finally(()=>{
-                console.log("Se resolvio la promesa");
-            });
-
-    },[]);
+   
 
 
     return(
         <div id="ItemDetailContainer">
             {loading && <Loading/>}
-            {products.map(product=>
-                <ItemDetail id={product.id} title={product.title} description={product.description} price={product.price} colors={product.colors} sizes={product.sizes} pictureUrl={product.pictureUrl}/>)}
-
+            <ItemDetail product={product}/>
         </div>
     )
 

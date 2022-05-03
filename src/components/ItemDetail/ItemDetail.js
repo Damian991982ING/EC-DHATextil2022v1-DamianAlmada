@@ -1,10 +1,17 @@
 import React,{useRef} from "react";
-import Colors from "../Colors/Colors";
 
-import Sizes from "../Sizes/Sizes";
+
+import ItemCount from "../ItemCount/ItemCount";
+
+
+
+
 import "./ItemDetail.css";
 
-const ItemDetail=({id, title, description, price, colors, sizes, pictureUrl})=>{
+const ItemDetail=({product})=>{
+    
+    
+    
     
     const imgDiv = useRef();
 
@@ -16,30 +23,24 @@ const ItemDetail=({id, title, description, price, colors, sizes, pictureUrl})=>{
     }
 
 
-
-
     return(
         <div className="details">
-            <div className="img-container" onMouseMove={handleMouseMove} style={{backgroundImage:`url(${pictureUrl})`}} ref={imgDiv} onMouseLeave={() => imgDiv.current.style.backgroundPosition = `center`} />
+            
+            <div className="img-container" onMouseMove={handleMouseMove}  style={{backgroundImage:`url(${product?.pictureUrl})`}} ref={imgDiv} onMouseLeave={() => imgDiv.current.style.backgroundPosition = `center`} />
+            
 
             <div className="box-details">
-                <h2 title={title}>{title}</h2>
-                <h3>${price}</h3>
-                <h2>Colors</h2>
-                <Colors colors={colors}/>
-                <h2>Sizes</h2>
-                <Sizes sizes={sizes}/>
-                <p>{description}</p>
+                <h2 id={product?.id}>{product?.id}</h2>
+                <h2 title={product?.title}>{product?.title}</h2>
+                <h3>${product?.price}</h3>
+                <p>{product?.description}</p>
+                <ItemCount initial={1} max={product?.stock} min={0}/>
                 
-
             </div>
-               
-                
-
-        
-
         </div>
+
     ) 
 
 }
+
 export default ItemDetail;
