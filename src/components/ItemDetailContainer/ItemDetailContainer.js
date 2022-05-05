@@ -21,6 +21,9 @@ const getProduct=(productId)=> {
 
 
 const ItemDetailContainer=()=>{
+   
+
+
     const [product,setProduct] = useState([]);
     const [loading, setLoading]= useState(true);
 

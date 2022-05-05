@@ -8,8 +8,6 @@ const Item=({item})=>{
     return(
         
         
-        <div className="products">
-            
             <div className="card">
                 
                     <img src={item?.pictureUrl} alt=""/>
@@ -26,11 +24,10 @@ const Item=({item})=>{
                     </Link>
                    
                     
-                    
                 </div>
             </div>
             
-        </div>
+        
         
 
         

@@ -1,4 +1,6 @@
-import React,{useRef} from "react";
+import React,{ useRef, useState} from "react";
+import { Link } from "react-router-dom";
+
 
 
 import ItemCount from "../ItemCount/ItemCount";
@@ -9,6 +11,17 @@ import ItemCount from "../ItemCount/ItemCount";
 import "./ItemDetail.css";
 
 const ItemDetail=({product})=>{
+    
+
+
+    const [isInCart, setIsInCart] = useState(false);
+
+
+    function onAdd(counter){
+        console.log(`Agregasta al carrito ${counter} items.`);
+        setIsInCart(true);
+
+    }
     
     
     
@@ -30,11 +43,29 @@ const ItemDetail=({product})=>{
             
 
             <div className="box-details">
-                <h2 id={product?.id}>{product?.id}</h2>
+                <h2 id={product?.id}>{product.id}</h2>
                 <h2 title={product?.title}>{product?.title}</h2>
-                <h3>${product?.price}</h3>
+                <h3>${product.price}</h3>
                 <p>{product?.description}</p>
-                <ItemCount initial={1} max={product?.stock} min={0}/>
+                
+
+                {isInCart?
+
+                <Link to={'/cart'}>
+                     <button className="cart">Cart view</button>
+
+                </Link>
+
+
+                
+                    
+
+
+                :
+                  <ItemCount initial={1} max={product?.stock} min={0} onAdd={onAdd}/>
+
+                }
+                
                 
             </div>
         </div>

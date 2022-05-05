@@ -48,7 +48,7 @@ const ItemListContainer = ({titleSection}) => {
 
 
     return(
-        <div id="ItemListContainer" className="mt-3 container">
+        <div id="ItemListContainer">
             <h1>{titleSection}</h1>
             {loading && <Loading/>}
             <ItemList items={products}/>
