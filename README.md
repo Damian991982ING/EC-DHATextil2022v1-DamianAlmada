@@ -9,6 +9,11 @@ La fabricacion se lleva a cabo a traves de 2 metodologias, la polimerizacion con
 >![alt text](public/DHATextil.gif "Logo")
 ---
 
+# Entrega de CartContext
+
+>![alt text](public/DHATextilCartContext.gif "Logo")
+---
+
 # Funcionalidad del proyecto
 
 Esta web muestra los productos a la venta. Los usuarios pueden agregar o remover productos de su carrito, donde se especifica la cantidad de cada item, para luego comprarlos.

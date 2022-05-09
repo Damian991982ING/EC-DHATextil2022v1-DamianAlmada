@@ -1,14 +1,8 @@
 import React,{ useRef, useState} from "react";
 import { Link } from "react-router-dom";
-
-
-
 import ItemCount from "../ItemCount/ItemCount";
-
-
-
-
 import "./ItemDetail.css";
+import useCartContext from "../../context/cartContext";
 
 const ItemDetail=({product})=>{
     
@@ -16,10 +10,13 @@ const ItemDetail=({product})=>{
 
     const [isInCart, setIsInCart] = useState(false);
 
+    const { addProduct } = useCartContext();
+
 
     function onAdd(counter){
-        console.log(`Agregasta al carrito ${counter} items.`);
         setIsInCart(true);
+        addProduct(product, counter)
+        console.log("Agregado al cart:",product, counter)
 
     }
     
@@ -57,8 +54,6 @@ const ItemDetail=({product})=>{
                 </Link>
 
 
-                
-                    
 
 
                 :

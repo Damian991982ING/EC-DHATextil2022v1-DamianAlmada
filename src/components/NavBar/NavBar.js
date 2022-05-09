@@ -3,13 +3,15 @@ import Menu from "../svg/bars-solid.svg";
 import Close from "../svg/times-solid.svg";
 import CartWidget from "../CartWidget/CartWidget";
 import {Link, NavLink} from "react-router-dom";
-
-
 import "./NavBar.css";
+import useCartContext from "../../context/cartContext";
+
 
 
 const NavBar=()=>{
 
+    const {contextFunction} = useCartContext();
+    contextFunction();
     const [menu, setMenu] = useState(false)
     
 
@@ -32,9 +34,8 @@ const NavBar=()=>{
             
             <ul style={styleMenu}>
                 <li>
-                    <Link to={'/Home'}>
-                        Home
-                    </Link>
+                  <NavLink to={'/'} className={nav=>nav.isActive ? 'nav-active' : ''}>Home</NavLink>
+                   
                     
                 </li>
 
