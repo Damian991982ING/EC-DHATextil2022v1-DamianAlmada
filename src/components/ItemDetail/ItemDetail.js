@@ -1,27 +1,29 @@
-import React,{ useRef, useState} from "react";
+import React,{ useContext, useRef, useState} from "react";
 import { Link } from "react-router-dom";
+import { CartContext, useCartContex } from "../../context/cartContext";
+
+
+
 import ItemCount from "../ItemCount/ItemCount";
+
+
 import "./ItemDetail.css";
-import useCartContext from "../../context/cartContext";
 
 const ItemDetail=({product})=>{
+    const cartCtx = useContext(CartContext);
     
 
+    const [quantityProduct,setQuantityProduct] = useState(null);
 
     const [isInCart, setIsInCart] = useState(false);
+    
 
-    const { addProduct } = useCartContext();
-
-
-    function onAdd(counter){
-        setIsInCart(true);
-        addProduct(product, counter)
-        console.log("Agregado al cart:",product, counter)
+    function addHandler(quantityToAdd){
+        setIsInCart(true)
+        cartCtx.addProduct({quantity: quantityToAdd, ...product})
 
     }
-    
-    
-    
+
     
     const imgDiv = useRef();
 
@@ -44,20 +46,26 @@ const ItemDetail=({product})=>{
                 <h2 title={product?.title}>{product?.title}</h2>
                 <h3>${product.price}</h3>
                 <p>{product?.description}</p>
+               
                 
 
                 {isInCart?
+                    
+                    <Link to={'/cart'}>
 
-                <Link to={'/cart'}>
-                     <button className="cart">Cart view</button>
-
-                </Link>
-
+                       <button className="cart"> Finish buying ({cartCtx.getCartQuantity()}) items </button>
 
 
+                    </Link>
+                    
 
-                :
-                  <ItemCount initial={1} max={product?.stock} min={0} onAdd={onAdd}/>
+                    :
+
+                    <ItemCount initial={1} max={product?.stock} min={0} onAdd={addHandler}/>
+
+        
+
+                  
 
                 }
                 

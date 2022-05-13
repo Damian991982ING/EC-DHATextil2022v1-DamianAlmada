@@ -3,15 +3,13 @@ import Menu from "../svg/bars-solid.svg";
 import Close from "../svg/times-solid.svg";
 import CartWidget from "../CartWidget/CartWidget";
 import {Link, NavLink} from "react-router-dom";
-import "./NavBar.css";
-import useCartContext from "../../context/cartContext";
 
+
+import "./NavBar.css";
 
 
 const NavBar=()=>{
 
-    const {contextFunction} = useCartContext();
-    contextFunction();
     const [menu, setMenu] = useState(false)
     
 
@@ -34,9 +32,8 @@ const NavBar=()=>{
             
             <ul style={styleMenu}>
                 <li>
-                  <NavLink to={'/'} className={nav=>nav.isActive ? 'nav-active' : ''}>Home</NavLink>
+                    <NavLink to={'/'} className={nav=>nav.isActive ? 'nav-active' : ''}>Home</NavLink>
                    
-                    
                 </li>
 
                 <li>
@@ -51,22 +48,18 @@ const NavBar=()=>{
                 
                
                 <li>
-                    <Link to={'/About'}>
-                        About
-                    </Link>
+                    <NavLink to={'/About'} className={nav=>nav.isActive ? 'nav-active' : ''}>About</NavLink>
+                   
                     
                 </li>
                 <li>
-                    <Link to={'/Contact'}>
-                       Contact
-                    </Link>
+                    <NavLink to={'/Contact'} className={nav=>nav.isActive ? 'nav-active' : ''}>Contact</NavLink>
+                   
                     
                 </li>
                 <li>
-                    <Link to={'/'}>
-                       Login / Register
-
-                    </Link>
+                    <NavLink to={'/LR'} className={nav=>nav.isActive ? 'nav-active' : ''}>Login / Register</NavLink>
+                    
                     
                 </li>
                 <li onClick={toggleMenu}>

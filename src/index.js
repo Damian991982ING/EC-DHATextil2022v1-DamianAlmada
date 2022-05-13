@@ -4,17 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
-import { CartContextProvider } from './context/cartContext';
+
+import db from './db/products';
+import CartContextProvider from './context/cartContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
       <React.StrictMode>
         <CartContextProvider>
-         <App />
-
+          <App />
         </CartContextProvider>
-      
     </React.StrictMode>
   </BrowserRouter>
   

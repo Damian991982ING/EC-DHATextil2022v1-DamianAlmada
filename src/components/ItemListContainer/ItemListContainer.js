@@ -1,9 +1,10 @@
-import React,{useState,useEffect} from "react";
+import React,{useState,useEffect, useContext} from "react";
 import Loading from "../Loading/Loading";
 import ItemList from "../ItemList/ItemList";
 import "./ItemListContainer.css";
 import Products from "../../db/products";
 import { useParams } from "react-router-dom";
+import CartContext from "../../context/cartContext";
 
 
 const getProducts =(nameCat)=> {
@@ -16,7 +17,7 @@ const getProducts =(nameCat)=> {
                       
                 });
                 resolve(arrayFiltered);
-                console.log("La categoria es:" + nameCat)
+                
             }
             else{
                 resolve(Products);
@@ -35,7 +36,10 @@ const ItemListContainer = ({titleSection}) => {
     const [loading, setLoading]= useState(true);
 
     const {nameCat} = useParams();
-    console.log("Categoria: " + nameCat);
+
+    const cartCtx = useContext(CartContext);
+
+    
 
     useEffect(()=>{
         getProducts(nameCat).then((res)=>{

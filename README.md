@@ -9,9 +9,16 @@ La fabricacion se lleva a cabo a traves de 2 metodologias, la polimerizacion con
 >![alt text](public/DHATextil.gif "Logo")
 ---
 
+
 # Entrega de CartContext
 
 >![alt text](public/DHATextilCartContext.gif "Logo")
+---
+
+
+# Entrega de CartView
+
+>![alt text](public/DHATextilCartView.gif "Logo")
 ---
 
 # Funcionalidad del proyecto

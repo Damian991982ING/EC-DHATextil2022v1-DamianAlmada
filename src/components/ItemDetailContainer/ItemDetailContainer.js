@@ -42,7 +42,6 @@ const ItemDetailContainer=()=>{
 
    
 
-
     return(
         <div id="ItemDetailContainer">
             {loading && <Loading/>}
